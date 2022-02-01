@@ -34,7 +34,7 @@ O Projeto é um portfólio pessoal.
 
 ## 🚀 Como executar
 
-Para que a aplicação funcione localmente é necessário o preenchimento das variaveis de ambiente.
+Para que a aplicação funcione localmente é necessário o preenchimento das variaveis de ambiente. Siga o exemplo do arquivo .env.exemple para o preenchimento das váriaveis.
 
 - Clone o repositório
 - Instale as dependências com `yarn`
