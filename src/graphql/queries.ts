@@ -6,6 +6,10 @@ export const GET_PROJECTS = gql`
       id
       title
       slug
+      coverCard {
+        url
+        alt
+      }
       cover {
         url
         alt
@@ -52,6 +56,10 @@ export const GET_PROJECTS_BY_SLUG = gql`
       id
       title
       slug
+      coverCard {
+        url
+        alt
+      }
       cover {
         url
         alt

@@ -6,15 +6,15 @@ import * as S from './styles'
 export type ProjectBoxProps = {
   title: string
   slug: string
-  cover: Cover
+  coverCard: Cover
   tags?: Tag[]
 }
-const ProjectBox = ({ title, slug, cover, tags }: ProjectBoxProps) => (
+const ProjectBox = ({ title, slug, coverCard, tags }: ProjectBoxProps) => (
   <S.Wrapper>
     <Link href={`/portfolio/${slug}`}>
       <a>
         <S.CoverContainer>
-          <S.Cover src={`${cover.url}`} alt={`${cover.alt}`} />
+          <S.Cover src={`${coverCard.url}`} alt={`${coverCard.alt}`} />
         </S.CoverContainer>
       </a>
     </Link>

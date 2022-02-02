@@ -19,9 +19,13 @@ export const Excerpt = styled.h2`
 `
 export const Cover = styled.img`
   ${({ theme }) => css`
-    max-height: 40rem;
+    max-height: 55rem;
     object-fit: cover;
     margin-bottom: ${theme.spacings.huge};
+
+    ${media.lessThan('medium')`
+      min-height: 20rem
+    `}
   `}
 `
 export const Links = styled.div`
@@ -54,7 +58,7 @@ export const Links = styled.div`
       }
     }
 
-    ${media.lessThan('small')`
+    ${media.lessThan('medium')`
       grid-template-columns: 1fr;
 
       a:nth-child(1) {

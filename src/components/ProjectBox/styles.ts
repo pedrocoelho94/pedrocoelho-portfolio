@@ -25,6 +25,7 @@ export const Cover = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   overflow: hidden;
   border-radius: 1rem 1rem 0 0;
 `

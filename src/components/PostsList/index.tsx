@@ -17,7 +17,7 @@ const PostsList = ({ projects, titlePage }: PostsListProps) => (
           key={item.id}
           slug={item.slug}
           title={item.title}
-          cover={item.cover}
+          coverCard={item.coverCard}
           tags={item.tags}
         />
       ))}

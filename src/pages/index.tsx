@@ -10,7 +10,7 @@ type Post = {
   id: string
   title: string
   slug: string
-  cover: Cover
+  coverCard: Cover
   tags: Tag[]
 }
 

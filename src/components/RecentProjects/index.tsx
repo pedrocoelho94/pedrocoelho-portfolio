@@ -19,7 +19,7 @@ const RecentProjects = ({ projects }: HomeProps) => (
           key={item.id}
           slug={item.slug}
           title={item.title}
-          cover={item.cover}
+          coverCard={item.coverCard}
           tags={item.tags}
         />
       ))}
