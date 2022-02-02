@@ -19,6 +19,7 @@ export const Excerpt = styled.h2`
 `
 export const Cover = styled.img`
   ${({ theme }) => css`
+    border-radius: 5px;
     max-height: 55rem;
     object-fit: cover;
     margin-bottom: ${theme.spacings.huge};
@@ -78,16 +79,42 @@ export const Content = styled.div`
   ${({ theme }) => css`
     max-width: ${theme.grid.maxContent};
     margin: 0 auto;
-    line-height: 2.5rem;
+    line-height: 3rem;
     margin-bottom: ${theme.spacings.huge};
 
-    p {
+    p:empty {
+      display: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul,
+    li {
+      list-style: initial;
+      position: relative;
+      left: 0.8rem;
+    }
+
+    p,
+    ul,
+    img,
+    a {
+      margin-top: 0;
       margin-bottom: ${theme.spacings.medium};
     }
 
     img {
-      height: 100%;
-      object-fit: cover;
+      /* position: relative;
+      width: auto;
+      height: auto;
+      left: 0;
+      transform: translateX(25%); */
+
+      max-height: 65rem;
+      object-fit: contain;
+      border-radius: 5px;
     }
   `}
 `
