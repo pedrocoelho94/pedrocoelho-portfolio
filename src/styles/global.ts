@@ -16,11 +16,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: ${theme.colors.background};
     color: ${theme.colors.primary};
-    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif
   }
 
   body, input, textarea, select, button {
-    font: 400 1.6rem "Roboto", sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif
   }
 
   img{

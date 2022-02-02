@@ -9,29 +9,30 @@ export type ProjectBoxProps = {
   cover: Cover
   tags?: Tag[]
 }
-
 const ProjectBox = ({ title, slug, cover, tags }: ProjectBoxProps) => (
-  <Link href={`/portfolio/${slug}`}>
-    <a>
-      {console.log(tags)}
-      <S.Wrapper>
+  <S.Wrapper>
+    <Link href={`/portfolio/${slug}`}>
+      <a>
         <S.CoverContainer>
           <S.Cover src={`${cover.url}`} alt={`${cover.alt}`} />
         </S.CoverContainer>
-
-        <S.Info>
-          {tags?.map((tag) => (
-            <S.Tags key={tag.id}>
-              <Link href={`tag/${tag.slug}`}>
-                <a>{tag.title}</a>
-              </Link>
-            </S.Tags>
-          ))}
+      </a>
+    </Link>
+    <S.Info>
+      {tags?.map((tag) => (
+        <S.Tags key={tag.id}>
+          <Link href={`/tag/${tag.slug}`}>
+            <a>{tag.title}</a>
+          </Link>
+        </S.Tags>
+      ))}
+      <Link href={`/portfolio/${slug}`}>
+        <a>
           <S.Title>{title}</S.Title>
-        </S.Info>
-      </S.Wrapper>
-    </a>
-  </Link>
+        </a>
+      </Link>
+    </S.Info>
+  </S.Wrapper>
 )
 
 export default ProjectBox

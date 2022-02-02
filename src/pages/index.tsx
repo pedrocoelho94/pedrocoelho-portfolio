@@ -24,7 +24,7 @@ export default function Home({ projects }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { projects } = await client.request(GET_PROJECTS, {
-    limit: 2
+    limit: 6
   })
 
   return {

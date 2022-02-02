@@ -10,6 +10,7 @@ export default {
     secondary: '#393E46',
     background: '#222831',
     highlight: '#00ADB5',
+    outline: '#cc4949',
     warning: '#dc143c',
     success: 'rgb(172, 243, 157)',
     info: 'rgb(85, 193, 255)',

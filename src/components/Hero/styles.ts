@@ -19,6 +19,7 @@ export const Content = styled.div`
 
 export const Title = styled.h1`
   ${({ theme }) => css`
+    text-align: center;
     font-size: ${theme.font.sizes.xlarge};
     margin-bottom: ${theme.spacings.small};
 
@@ -40,7 +41,7 @@ export const Description = styled.h2`
   `}
 `
 
-export const Button = styled.button`
+export const Link = styled.a`
   ${({ theme }) => css`
     border: none;
     padding: ${theme.spacings.small} ${theme.spacings.small};
@@ -48,9 +49,23 @@ export const Button = styled.button`
     background: ${theme.colors.highlight};
     color: ${theme.colors.black};
     font-size: 2rem;
+    margin-bottom: ${theme.spacings.xlarge};
   `}
 `
 
-export const Socials = styled.div``
+export const Socials = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: 3rem;
+
+    svg {
+      color: ${theme.colors.highlight};
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+  `}
+`
 
 export const Image = styled.div``

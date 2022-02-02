@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.p`
+export const Wrapper = styled.span`
   ${({ theme }) => css`
     margin: ${theme.spacings.medium} 0;
 

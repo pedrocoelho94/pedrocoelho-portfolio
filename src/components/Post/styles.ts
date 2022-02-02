@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.article``
 
@@ -33,6 +34,7 @@ export const Links = styled.div`
 
     a:nth-child(1) {
       border-radius: 5px 0 0 5px;
+      border-right: 1px solid ${theme.colors.background};
     }
 
     a:nth-child(2) {
@@ -44,12 +46,27 @@ export const Links = styled.div`
       padding: ${theme.spacings.small};
       text-align: center;
       font-weight: bold;
+      align-self: center;
       transition: filter 0.2s ease-in-out;
 
       &:hover {
         filter: brightness(0.9);
       }
     }
+
+    ${media.lessThan('small')`
+      grid-template-columns: 1fr;
+
+      a:nth-child(1) {
+        border-radius: 5px 5px 0 0;
+        border-right: none;
+        border-bottom: 1px solid ${theme.colors.background};
+      }
+
+      a:nth-child(2) {
+        border-radius: 0 0 5px 5px;
+      }
+    `}
   `}
 `
 
