@@ -25,7 +25,7 @@ export const ViewMore = styled.p`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 4rem;
 
   ${media.lessThan('medium')`
     grid-template-columns: repeat(2, 1fr);
