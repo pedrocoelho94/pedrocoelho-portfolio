@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!projects.length) return { notFound: true }
 
   return {
-    revalidate: 60 * 60, // 1 hour
+    revalidate: 60, // 1min
     props: {
       project: projects[0]
     }

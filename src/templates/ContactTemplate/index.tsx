@@ -77,7 +77,7 @@ const ContactTemplate = () => {
           </S.Description>
 
           {!isSent && (
-            <S.Form onSubmit={handleSubmit(handleForm)}>
+            <S.Form data-netlify="true" onSubmit={handleSubmit(handleForm)}>
               <Input
                 {...register('name')}
                 name="name"
