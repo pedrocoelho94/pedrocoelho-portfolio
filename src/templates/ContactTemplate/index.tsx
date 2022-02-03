@@ -30,7 +30,6 @@ const ContactFormSchema = yup.object().shape({
 const ContactTemplate = () => {
   const {
     register,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     handleSubmit,
     formState: { errors }
   } = useForm<ContactFormData>({
@@ -41,7 +40,6 @@ const ContactTemplate = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessageForm, setErrorMessageForm] = useState('')
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleForm: SubmitHandler<ContactFormData> = async (values) => {
     setIsSubmitting(true)
     await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -79,7 +77,7 @@ const ContactTemplate = () => {
           </S.Description>
 
           {!isSent && (
-            <S.Form name="contact" method="POST" data-netlify="true">
+            <S.Form onSubmit={handleSubmit(handleForm)}>
               <Input
                 {...register('name')}
                 name="name"
