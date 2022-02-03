@@ -1,15 +1,18 @@
-import { Container } from 'components/Container'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import * as S from './styles'
+
 import NavbarLink from 'components/NavbarLink'
+import { Container } from 'components/Container'
+
+import { IoMdClose } from 'react-icons/io'
+
+import * as S from './styles'
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const [isAtTop, setIsAtTop] = useState(true)
 
   function navEffects() {
-    if (window.pageYOffset > 70) {
+    if (window.scrollY > 30) {
       setIsAtTop(false)
     } else {
       setIsAtTop(true)
@@ -17,6 +20,11 @@ const Navbar = () => {
   }
 
   useEffect(() => {
+    // ao navegar de volta para a página anterior essa verificação tbm é feita
+    if (window.scrollY > 30) {
+      setIsAtTop(false)
+    }
+
     window.addEventListener('scroll', navEffects)
 
     return () => window.removeEventListener('scroll', navEffects)
@@ -26,11 +34,13 @@ const Navbar = () => {
     <S.Wrapper isAtTop={isAtTop}>
       <Container>
         <S.NavContent>
-          <Link href="/">
-            <a onClick={() => setToggle(false)}>
-              <S.Logo src="/img/coelho.svg" alt="Pedro Coelho" />
-            </a>
-          </Link>
+          <NavbarLink href="/">
+            <S.Logo
+              onClick={() => setToggle(false)}
+              src="/img/coelho.svg"
+              alt="Pedro Coelho"
+            />
+          </NavbarLink>
           <S.Menu>
             <NavbarLink href="/portfolio">Portfolio</NavbarLink>
             <NavbarLink href="/contato">Contato</NavbarLink>
@@ -48,12 +58,25 @@ const Navbar = () => {
         <Container>
           <S.SidenavContent>
             <S.HeaderMobile>
-              <S.Logo src="/img/coelho.svg" alt="Pedro Coelho" />
-              <S.CloseBtn onClick={() => setToggle(false)}>X</S.CloseBtn>
+              <NavbarLink href="/">
+                <S.Logo
+                  onClick={() => setToggle(false)}
+                  src="/img/coelho.svg"
+                  alt="Pedro Coelho"
+                />
+              </NavbarLink>
+
+              <S.CloseBtn onClick={() => setToggle(false)}>
+                <IoMdClose />
+              </S.CloseBtn>
             </S.HeaderMobile>
             <S.MenuMobile>
-              <NavbarLink href="/portfolio">Portfolio</NavbarLink>
-              <NavbarLink href="/contato">Contato</NavbarLink>
+              <li>
+                <NavbarLink href="/portfolio">Portfolio</NavbarLink>
+              </li>
+              <li>
+                <NavbarLink href="/contato">Contato</NavbarLink>
+              </li>
             </S.MenuMobile>
           </S.SidenavContent>
         </Container>

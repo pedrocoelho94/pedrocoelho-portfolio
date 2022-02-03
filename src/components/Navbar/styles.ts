@@ -97,30 +97,49 @@ export const SidenavContainer = styled.div<OpenProps>`
     `}
   `}
 `
+export const SidenavContent = styled.div``
 
 export const HeaderMobile = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: ${theme.spacings.medium};
+    margin-bottom: ${theme.spacings.huge};
   `}
 `
 
 export const CloseBtn = styled.button`
   ${({ theme }) => css`
+    display: flex;
+    align-items: center;
     background: none;
     border: none;
     color: ${theme.colors.primary};
-    font-size: 2rem;
+    font-size: 3rem;
+    transition: ${theme.transitions.faster};
+
+    &:hover {
+      color: ${theme.colors.highlight};
+    }
   `}
 `
 
-export const SidenavContent = styled.div``
-
 export const MenuMobile = styled.ul`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    a {
+      font-size: ${theme.font.sizes.large};
+      font-weight: bold;
+      display: inline;
+      transition: ${theme.transitions.faster};
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+  `}
 `
 
 export const MobileItem = styled.li`
