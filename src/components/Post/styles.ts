@@ -22,18 +22,19 @@ export const Cover = styled.img`
     border-radius: 5px;
     max-height: 55rem;
     object-fit: cover;
-    margin-bottom: ${theme.spacings.huge};
+    margin-bottom: ${theme.spacings.large};
 
     ${media.lessThan('medium')`
-      min-height: 20rem
+      min-height: 20rem;
     `}
   `}
 `
+
 export const Links = styled.div`
   ${({ theme }) => css`
     max-width: ${theme.grid.maxContent};
     margin: 0 auto;
-    margin-bottom: ${theme.spacings.huge};
+    margin-bottom: ${theme.spacings.large};
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -77,10 +78,16 @@ export const Links = styled.div`
 
 export const Content = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    word-break: break-word;
+    flex-direction: column;
+    gap: 2rem;
     max-width: ${theme.grid.maxContent};
     margin: 0 auto;
     line-height: 3rem;
-    margin-bottom: ${theme.spacings.huge};
+    margin-bottom: ${theme.spacings.large};
+    padding-bottom: ${theme.spacings.large};
+    border-bottom: 2px solid ${theme.colors.secondary};
 
     p:empty {
       display: none;
@@ -92,27 +99,25 @@ export const Content = styled.div`
 
     ul,
     li {
+      width: calc(100% - 1rem);
       list-style: initial;
       position: relative;
-      left: 0.8rem;
+      left: 1rem;
     }
 
-    p,
-    ul,
-    img,
-    a {
-      margin-top: 0;
-      margin-bottom: ${theme.spacings.medium};
+    li:not(:last-child) {
+      margin-bottom: ${theme.spacings.small};
     }
 
     img {
-      /* position: relative;
+      position: relative;
       width: auto;
       height: auto;
-      left: 0;
-      transform: translateX(25%); */
+      left: 50%;
+      transform: translateX(-50%);
 
       max-height: 65rem;
+      max-width: 100%;
       object-fit: contain;
       border-radius: 5px;
     }
@@ -123,5 +128,40 @@ export const Tags = styled.p`
   ${({ theme }) => css`
     max-width: ${theme.grid.maxContent};
     margin: 0 auto;
+  `}
+`
+type BarProps = {
+  showBar: boolean
+}
+
+export const ProgressContainer = styled.div<BarProps>`
+  ${({ theme, showBar }) => css`
+    position: fixed;
+    left: 0;
+    opacity: 0;
+    top: 6rem;
+    width: 100%;
+    height: 6px;
+    background: ${theme.colors.primary};
+    z-index: ${theme.layers.layer8};
+
+    ${showBar &&
+    `
+      opacity: 1
+    `}
+  `}
+`
+type ScrolledProps = {
+  scrolled: string
+}
+
+export const ProgressBar = styled.div.attrs(({ scrolled }: ScrolledProps) => ({
+  style: {
+    width: scrolled
+  }
+}))<ScrolledProps>`
+  ${({ theme }) => css`
+    height: 6px;
+    background-color: ${theme.colors.highlight};
   `}
 `
