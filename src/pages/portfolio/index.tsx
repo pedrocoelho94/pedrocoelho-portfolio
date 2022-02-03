@@ -5,6 +5,8 @@ import { PostsProps } from 'pages/tag/[slug]'
 import PostsTemplate from 'templates/PostsTemplate'
 
 export default function Home({ projects }: PostsProps) {
+  console.log(projects)
+
   return <PostsTemplate projects={projects} titlePage="Projetos" />
 }
 
