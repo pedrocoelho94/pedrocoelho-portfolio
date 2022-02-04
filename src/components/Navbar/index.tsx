@@ -37,7 +37,7 @@ const Navbar = () => {
           <NavbarLink href="/">
             <S.Logo
               onClick={() => setToggle(false)}
-              src="/img/coelho.svg"
+              src="/img/pedrocoelho-logo.png"
               alt="Pedro Coelho"
             />
           </NavbarLink>
@@ -61,7 +61,7 @@ const Navbar = () => {
               <NavbarLink href="/">
                 <S.Logo
                   onClick={() => setToggle(false)}
-                  src="/img/coelho.svg"
+                  src="/img/pedrocoelho-logo.png"
                   alt="Pedro Coelho"
                 />
               </NavbarLink>

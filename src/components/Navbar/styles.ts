@@ -31,6 +31,8 @@ export const NavContent = styled.div`
 
 export const Logo = styled.img`
   max-height: 6rem;
+  padding-top: 8px;
+  padding-bottom: 4px;
 `
 
 export const Menu = styled.ul`

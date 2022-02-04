@@ -10,10 +10,14 @@ const Hero = () => (
       <S.Content>
         <S.Title>Olá, eu sou o Pedro!</S.Title>
         <S.Description>
-          Im a freelance graphic designer with a penchant for UI. Ive worked as
-          an art director for the last few years in the tourism, consumer
-          product, and sport industries.
+          Estudante de desenvolvimento web com foco no Front-end. Meu objetivo
+          hoje é entrar no mercado de trabalho como programador JavaScript. Se
+          gostou do que viu aqui nao deixe de entrar em contato comigo.
         </S.Description>
+        <S.ExtraInfo>
+          <span>Possuo experiência com:</span>
+          HTML, CSS, JS, React, NextJS, Styled-Components, Headless CMS
+        </S.ExtraInfo>
         <Link href="/contato" passHref>
           <S.Link>Entre em contato</S.Link>
         </Link>
