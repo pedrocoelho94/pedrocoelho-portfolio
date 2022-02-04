@@ -37,7 +37,7 @@ export const Title = styled.h1`
     margin-bottom: ${theme.spacings.small};
 
     ${media.lessThan('small')`
-      font-size: ${theme.font.sizes.medium};
+      font-size: ${theme.font.sizes.large};
     `}
   `}
 `
@@ -48,12 +48,8 @@ export const Description = styled.h2`
   ${({ theme }) => css`
     margin-bottom: ${theme.spacings.xlarge};
 
-    ${media.between('small', 'medium')`
+    ${media.lessThan('medium')`
       font-size: ${theme.font.sizes.normal};
-    `}
-
-    ${media.lessThan('small')`
-      font-size: ${theme.font.sizes.small};
     `}
   `}
 `
@@ -61,7 +57,7 @@ export const ExtraInfo = styled.p`
   ${({ theme }) => css`
     text-align: center;
     margin-bottom: ${theme.spacings.xlarge};
-    font-size: ${theme.font.sizes.small};
+    font-size: ${theme.font.sizes.normal};
     opacity: 0.5;
 
     span {
@@ -101,10 +97,18 @@ export const Socials = styled.div`
     gap: 3rem;
 
     svg {
+      width: 4rem;
+      height: 4rem;
       color: ${theme.colors.highlight};
+      transition: ${theme.transitions.faster};
+
+      ${media.lessThan('small')`
+        width: 3rem;
+        height: 3rem;
+      `}
 
       &:hover {
-        filter: brightness(0.8);
+        filter: brightness(0.7);
       }
     }
   `}

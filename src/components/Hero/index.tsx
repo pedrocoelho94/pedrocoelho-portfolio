@@ -29,7 +29,7 @@ const Hero = () => (
               target="_blank"
               rel="noreferrer"
             >
-              <BsInstagram size={40} />
+              <BsInstagram />
             </a>
           </span>
           <span>
@@ -38,7 +38,7 @@ const Hero = () => (
               target="_blank"
               rel="noreferrer"
             >
-              <BsLinkedin size={40} />
+              <BsLinkedin />
             </a>
           </span>
           <span>
@@ -47,7 +47,7 @@ const Hero = () => (
               target="_blank"
               rel="noreferrer"
             >
-              <BsGithub size={40} />
+              <BsGithub />
             </a>
           </span>
         </S.Socials>
