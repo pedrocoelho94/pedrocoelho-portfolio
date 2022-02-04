@@ -1,11 +1,12 @@
 import { client } from 'graphql/client'
-import { GET_PROJECT } from 'graphql/queries'
+import { GET_PROJECT, GET_SIBLIGNS_POSTS } from 'graphql/queries'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import ProjectTemplate from 'templates/ProjectTemplate'
 import { Cover } from 'types/shared/cover'
 import { Tag } from 'types/shared/tag'
 
 export type SingleProjectProps = {
+  createdAt: string
   id: string
   title: string
   slug: string
@@ -19,12 +20,21 @@ export type SingleProjectProps = {
   tags: Tag[]
 }
 
-export type ProjectProps = {
-  project: SingleProjectProps
+type SiblingProps = {
+  slug: string
+  title: string
 }
 
-export default function ProjectPage({ project }: ProjectProps) {
-  return <ProjectTemplate project={project} />
+export type ProjectProps = {
+  project: SingleProjectProps
+  siblingsPosts: {
+    prev?: SiblingProps
+    next?: SiblingProps
+  }
+}
+
+export default function ProjectPage({ project, siblingsPosts }: ProjectProps) {
+  return <ProjectTemplate project={project} siblingsPosts={siblingsPosts} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -41,10 +51,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (!projects.length) return { notFound: true }
 
+  const createdAt = projects[0].createdAt
+
+  const { prev, next } = await client.request(GET_SIBLIGNS_POSTS, {
+    date: createdAt
+  })
+
+  const siblingsPosts = {
+    prev: prev[0] || null,
+    next: next[0] || null
+  }
+
   return {
-    revalidate: 60, // 1min
+    revalidate: 60 * 60, // 1 hour
     props: {
-      project: projects[0]
+      project: projects[0],
+      siblingsPosts
     }
   }
 }

@@ -25,6 +25,7 @@ export const GET_PROJECTS = gql`
 export const GET_PROJECT = gql`
   query GET_PROJECT($slug: String!) {
     projects(where: { slug: $slug }) {
+      createdAt
       id
       title
       slug
@@ -69,6 +70,27 @@ export const GET_PROJECTS_BY_SLUG = gql`
         title
         slug
       }
+    }
+  }
+`
+
+export const GET_SIBLIGNS_POSTS = gql`
+  query GET_SIBLIGNS_POSTS($date: DateTime!) {
+    prev: projects(
+      orderBy: createdAt_DESC
+      where: { createdAt_lt: $date }
+      first: 1
+    ) {
+      title
+      slug
+    }
+    next: projects(
+      orderBy: createdAt_ASC
+      where: { createdAt_gt: $date }
+      first: 1
+    ) {
+      title
+      slug
     }
   }
 `
