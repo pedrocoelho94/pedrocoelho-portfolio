@@ -38,6 +38,8 @@ const Post = ({
 
     setScrolledPx(() => `${scrolled}%`)
 
+    console.log(scrolled)
+
     if (window.scrollY > 30) {
       setShowBar(true)
     } else {
@@ -71,6 +73,7 @@ const Post = ({
                 Demo
               </a>
             )}
+
             {!!githubRepo && (
               <a href={githubRepo} target="_blank" rel="noreferrer">
                 Github Repositório

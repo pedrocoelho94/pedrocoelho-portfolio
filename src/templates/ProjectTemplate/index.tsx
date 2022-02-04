@@ -25,6 +25,7 @@ const ProjectTemplate = ({ project, siblingsPosts }: ProjectProps) => (
             tags={project.tags}
           />
         </Section>
+
         <S.RelatedPosts>
           {!!siblingsPosts.prev && (
             <S.Left>

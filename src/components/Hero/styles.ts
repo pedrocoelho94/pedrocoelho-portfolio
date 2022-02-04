@@ -3,10 +3,11 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.header`
   height: 100vh;
+  min-height: 50rem;
 
-  ${media.lessThan('medium')`
+  ${media.lessThan('large')`
     height: 100%;
-    margin: 6rem 0;
+    margin-top: 6rem;
   `}
 
   ${media.lessThan('small')`
@@ -24,7 +25,7 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
 
-    ${media.lessThan('medium')`
+    ${media.lessThan('large')`
       height: 100%;
     `}
   `}

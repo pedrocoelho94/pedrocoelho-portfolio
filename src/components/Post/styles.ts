@@ -140,7 +140,7 @@ export const ProgressContainer = styled.div<BarProps>`
     left: 0;
     opacity: 0;
     top: 6rem;
-    width: 100%;
+    width: 90%;
     height: 6px;
     background: ${theme.colors.primary};
     z-index: ${theme.layers.layer8};
