@@ -13,25 +13,22 @@ const ProjectBox = ({ title, slug, coverCard, tags }: ProjectBoxProps) => (
   <S.Wrapper>
     <Link href={`/portfolio/${slug}`}>
       <a>
-        <S.CoverContainer>
-          <S.Cover src={`${coverCard.url}`} alt={`${coverCard.alt}`} />
+        <S.CoverContainer
+          coverCard={`${coverCard.url}`}
+          aria-label={`${coverCard.alt}`}
+        >
+          <S.Overlay />
+
+          <S.Info>
+            <S.Title>{title}</S.Title>
+
+            {tags?.map((tag) => (
+              <S.Tags key={tag.id}>{tag.title}</S.Tags>
+            ))}
+          </S.Info>
         </S.CoverContainer>
       </a>
     </Link>
-    <S.Info>
-      {tags?.map((tag) => (
-        <S.Tags key={tag.id}>
-          <Link href={`/tag/${tag.slug}`}>
-            <a>{tag.title}</a>
-          </Link>
-        </S.Tags>
-      ))}
-      <Link href={`/portfolio/${slug}`}>
-        <a>
-          <S.Title>{title}</S.Title>
-        </a>
-      </Link>
-    </S.Info>
   </S.Wrapper>
 )
 

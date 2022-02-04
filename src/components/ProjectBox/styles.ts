@@ -1,89 +1,80 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div`
-  border-radius: 5px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease-in-out;
+type CoverCardProps = {
+  coverCard: string
+}
 
-  &:hover {
-    transform: scale(1.03);
-  }
-`
-export const CoverContainer = styled.div`
-  position: relative;
-  padding-bottom: 105%;
-  max-width: 100%;
-`
+export const Wrapper = styled.div``
 
-export const Cover = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  overflow: hidden;
-  border-radius: 1rem 1rem 0 0;
+export const Overlay = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    opacity: 0;
+    transition: ${theme.transitions.faster};
+  `}
 `
 
 export const Info = styled.div`
   ${({ theme }) => css`
-    min-height: 12rem;
-    padding: ${theme.spacings.small};
-
-    background: ${theme.colors.secondary};
-    border-radius: 0 0 5px 5px;
-
-    ${media.between('medium', 'large')`
-      min-height: 8rem;
-    `}
-  `}
-`
-export const Tags = styled.span`
-  ${({ theme }) => css`
-    display: inline-block;
-    margin-bottom: 0.5rem;
-
-    a {
-      display: inline-flex;
-      background-color: ${theme.colors.highlight};
-      color: ${theme.colors.primary};
-      padding: ${theme.spacings.tiny};
-      margin: ${theme.spacings.tiny} 0;
-      border-radius: 5px;
-      line-height: 1;
-      margin-right: 1rem;
-      font-size: 1.4rem;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.highlight};
-      }
-    }
-  `}
-
-  ${media.between('small', 'large')`
-    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    transition: ${theme.transitions.faster};
   `}
 `
 
 export const Title = styled.h1`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
+    padding: 0.5rem;
+    color: ${theme.colors.gray10};
 
-    ${media.between('medium', 'large')`
+    ${media.between('small', 'large')`
       font-size: ${theme.font.sizes.normal};
     `}
   `}
 `
 
-export const Description = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.secondary};
+export const Tags = styled.span`
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.5rem;
+
+  ${media.between('small', 'large')`
+      display: none;
+    `}
+
+  &:not(:last-child)::after {
+    content: ', ';
+    white-space: pre;
+  }
+`
+
+export const CoverContainer = styled.div<CoverCardProps>`
+  ${({ coverCard }) => css`
+    position: relative;
+    background-image: url(${coverCard});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding-bottom: 140%;
+
+    &:hover {
+      ${Overlay} {
+        opacity: 0.9;
+      }
+
+      ${Info} {
+        opacity: 1;
+      }
+    }
   `}
 `
