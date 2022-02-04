@@ -9,6 +9,10 @@ export const Info = styled.div`
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: ${theme.spacings.medium};
+
+    ${media.lessThan('small')`
+      font-size: calc(${theme.font.sizes.small} - 0.3rem);
+    `}
   `}
 `
 
@@ -25,7 +29,7 @@ export const ViewMore = styled.p`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
+  gap: 1.5rem;
 
   ${media.lessThan('medium')`
     grid-template-columns: repeat(2, 1fr);
