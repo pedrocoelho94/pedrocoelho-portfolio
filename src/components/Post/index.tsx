@@ -33,10 +33,10 @@ const Post = ({
   function scrolledHeight() {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight
+    const height = document.documentElement.scrollHeight - window.innerHeight
     const scrolled = ((winScroll / height) * 100).toFixed(2)
+
+    console.log(document.documentElement.scrollHeight, window.innerHeight)
 
     setWinScroll(winScroll)
     setHeight(height)
