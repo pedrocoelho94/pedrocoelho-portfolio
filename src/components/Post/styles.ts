@@ -165,12 +165,3 @@ export const ProgressBar = styled.div.attrs(({ scrolled }: ScrolledProps) => ({
     background-color: ${theme.colors.highlight};
   `}
 `
-
-export const Valores = styled.div`
-  position: fixed;
-  z-index: 99999;
-  bottom: 2rem;
-  font-size: 5rem;
-  color: red;
-  font-weight: bold;
-`

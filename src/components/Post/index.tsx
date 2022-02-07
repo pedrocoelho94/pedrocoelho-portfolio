@@ -27,19 +27,12 @@ const Post = ({
 }: ProjectProps) => {
   const [scrolledPx, setScrolledPx] = useState('0%')
   const [showBar, setShowBar] = useState(false)
-  const [winScroll, setWinScroll] = useState(0)
-  const [height, setHeight] = useState(0)
 
   function scrolledHeight() {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop
     const height = document.documentElement.scrollHeight - window.innerHeight
-    const scrolled = ((winScroll / height) * 100).toFixed(2)
-
-    console.log(document.documentElement.scrollHeight, window.innerHeight)
-
-    setWinScroll(winScroll)
-    setHeight(height)
+    const scrolled = (winScroll / height) * 100
 
     setScrolledPx(() => `${scrolled}%`)
 
@@ -63,10 +56,6 @@ const Post = ({
       <S.ProgressContainer showBar={showBar}>
         <S.ProgressBar scrolled={scrolledPx} />
       </S.ProgressContainer>
-
-      <S.Valores>
-        {winScroll} {height} {scrolledPx}
-      </S.Valores>
 
       <S.Wrapper>
         <S.Title>{title}</S.Title>
