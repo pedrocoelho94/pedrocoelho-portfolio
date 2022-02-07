@@ -140,7 +140,7 @@ export const ProgressContainer = styled.div<BarProps>`
     left: 0;
     opacity: 0;
     top: 6rem;
-    width: 90%;
+    width: 100%;
     height: 6px;
     background: ${theme.colors.primary};
     z-index: ${theme.layers.layer8};
@@ -164,4 +164,13 @@ export const ProgressBar = styled.div.attrs(({ scrolled }: ScrolledProps) => ({
     height: 6px;
     background-color: ${theme.colors.highlight};
   `}
+`
+
+export const Valores = styled.div`
+  position: fixed;
+  z-index: 99999;
+  bottom: 2rem;
+  font-size: 5rem;
+  color: red;
+  font-weight: bold;
 `

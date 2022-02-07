@@ -33,6 +33,7 @@ export const Logo = styled.img`
   max-height: 6rem;
   padding-top: 12px;
   padding-bottom: 8px;
+  caret-color: transparent;
 `
 
 export const Menu = styled.ul`

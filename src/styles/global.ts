@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none
+    list-style: none;
   }
 
   html {
@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.8rem;
     letter-spacing: 0.1rem;
     font-weight: 400;
-    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   }
 
   img{
