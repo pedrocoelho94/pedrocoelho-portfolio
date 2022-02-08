@@ -37,10 +37,44 @@ export const Logo = styled.img`
 `
 
 export const Menu = styled.ul`
-  display: flex;
-  gap: 2rem;
-  ${media.lessThan('medium')`
-    display: none;
+  ${({ theme }) => css`
+    height: 6rem;
+
+    a {
+      color: ${theme.colors.white};
+      height: 6rem;
+      position: relative;
+      display: inline-block;
+      line-height: 6rem;
+      transition: ${theme.transitions.fast};
+
+      &:hover {
+        color: ${theme.colors.highlight};
+      }
+
+      & + a {
+        margin-left: 2rem;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0.2rem;
+        background: ${theme.colors.highlight};
+        bottom: 1.5rem;
+        left: 0;
+        transition: ${theme.transitions.fast};
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    ${media.lessThan('small')`
+      display: none;
+    `}
   `}
 `
 
@@ -50,7 +84,7 @@ export const NavIcon = styled.div`
   cursor: pointer;
   display: none;
 
-  ${media.lessThan('medium')`
+  ${media.lessThan('small')`
     display: block;
   `}
 `
@@ -90,7 +124,7 @@ export const SidenavContainer = styled.div<OpenProps>`
     padding: ${theme.spacings.medium} 0;
     transition: left 0.3s ease-in-out;
 
-    ${media.greaterThan('medium')`
+    ${media.greaterThan('small')`
       display: none;
     `}
 
@@ -129,10 +163,13 @@ export const CloseBtn = styled.button`
 
 export const MenuMobile = styled.ul`
   ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     a {
+      color: ${theme.colors.white};
       font-size: ${theme.font.sizes.large};
       font-weight: bold;
       display: inline;

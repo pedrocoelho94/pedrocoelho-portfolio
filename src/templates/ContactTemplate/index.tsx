@@ -38,11 +38,11 @@ const ContactTemplate = () => {
 
   const [isSent, setIsSent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [errorMessageForm, setErrorMessageForm] = useState('')
+  const [errorMessageForm, setErrorMessageForm] = useState(false)
 
   const handleForm: SubmitHandler<ContactFormData> = async (values) => {
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // await new Promise((resolve) => setTimeout(resolve, 2000))
 
     const formData = new FormData()
     Object.entries(values).forEach(([key, value]) => {
@@ -53,12 +53,11 @@ const ContactTemplate = () => {
       .post(process.env.NEXT_PUBLIC_GETFORMIO_ENDPOINT!, formData)
       .then(() => {
         setIsSent(true)
-        setErrorMessageForm('')
+        setErrorMessageForm(false)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       })
       .catch(() => {
-        setErrorMessageForm(
-          'Ocorreu um erro ao enviar o formulário, tente novamente!'
-        )
+        setErrorMessageForm(true)
         setIsSent(false)
         setIsSubmitting(false)
       })
@@ -71,9 +70,9 @@ const ContactTemplate = () => {
           <S.Title>Entre em contato</S.Title>
 
           <S.Description>
-            Im always on the lookout for fun new projects so if youve got
-            something that you think we can work together on, send me a message
-            and we can talk about it!
+            Estou sempre em busca de novos desafios, se gostou do que viu aqui e
+            acha que podemos trabalhar juntos não deixe de me mandar uma
+            mensagem.
           </S.Description>
 
           {!isSent && (
@@ -106,7 +105,15 @@ const ContactTemplate = () => {
               </Button>
 
               {errorMessageForm ? (
-                <S.ErrorMessage>{errorMessageForm}</S.ErrorMessage>
+                <S.ErrorMessage>
+                  Ocorreu um erro ao enviar o formulário, tente novamente!{' '}
+                  <br /> Caso o erro persista, espere 60 segundos para enviar
+                  novamente, ou entre em contato comigo diretamente pelo email:{' '}
+                  <a href="mailto:pedrohenriquesc@gmail.com">
+                    pedrohenriquesc@gmail.com
+                  </a>
+                  .
+                </S.ErrorMessage>
               ) : (
                 ''
               )}

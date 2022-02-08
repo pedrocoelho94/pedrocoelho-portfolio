@@ -7,7 +7,6 @@ export default function ContactPage() {
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    revalidate: 60 * 60 * 24, // 1 day
     props: {}
   }
 }

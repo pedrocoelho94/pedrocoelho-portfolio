@@ -3,6 +3,7 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.footer`
   ${({ theme }) => css`
+    min-height: 40rem;
     width: 100%;
     background-color: ${theme.colors.secondary};
     padding: ${theme.spacings.xxlarge} 0;

@@ -6,6 +6,7 @@ export const Wrapper = styled(Section)`
     max-width: ${theme.grid.maxContent};
     margin-left: auto;
     margin-right: auto;
+    min-height: 44.5rem;
   `}
 `
 export const Title = styled.h1`
